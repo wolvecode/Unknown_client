@@ -21,11 +21,21 @@ function LandingPage() {
       .post('http://localhost:5000/api/product/getFood', data)
       .then((response) => {
         if (response.data.success) {
-          setFoods(response.data.foods)
+          setFoods([...Foods, ...response.data.foods])
         } else {
           alert('Failed to search food')
         }
       })
+  }
+
+  const loadMore = () => {
+    let skip = Skip + Limit
+
+    const data = {
+      skip: skip,
+      limit: Limit,
+    }
+    getFood(data)
   }
   const renderCards = Foods.map((food, index) => {
     return (
@@ -36,15 +46,7 @@ function LandingPage() {
       </Col>
     )
   })
-  const loadMore = () => {
-    let skip = Skip + Limit
 
-    const data = {
-      skip: skip,
-      limit: Limit,
-    }
-    getFood(data)
-  }
   return (
     <div style={{ width: '75%', margin: '3rem auto' }}>
       <div style={{ textAlign: 'center' }}>
