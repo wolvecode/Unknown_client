@@ -3,12 +3,18 @@ import axios from 'axios'
 import Loader from 'react-loader-spinner'
 import ImagesSlider from '../../Utils/ImageSlider'
 import { Col, Card, Row } from 'antd'
+import CheckBox from './Sections/CheckBox'
 const { Meta } = Card
 
 function LandingPage() {
   const [Foods, setFoods] = useState([])
   const [Skip, setSkip] = useState(0)
   const [Limit, setLimit] = useState(8)
+  const [PostSize, setPostSize] = useState(0)
+  const [Filters, setFilters] = useState({
+    shops: [],
+    price: [],
+  })
   useEffect(() => {
     const data = {
       skip: Skip,
@@ -20,8 +26,14 @@ function LandingPage() {
     axios
       .post('http://localhost:5000/api/product/getFood', data)
       .then((response) => {
+        console.log(response.data)
         if (response.data.success) {
-          setFoods([...Foods, ...response.data.foods])
+          if (data.loadMore) {
+            setFoods([...Foods, ...response.data.foods])
+          } else {
+            setFoods(response.data.foods)
+          }
+          setPostSize(response.data.postSize)
         } else {
           alert('Failed to search food')
         }
@@ -34,8 +46,10 @@ function LandingPage() {
     const data = {
       skip: skip,
       limit: Limit,
+      loadMore: true,
     }
     getFood(data)
+    setSkip(skip)
   }
   const renderCards = Foods.map((food, index) => {
     return (
@@ -47,6 +61,25 @@ function LandingPage() {
     )
   })
 
+  const showFilteredResults = (filters) => {
+    const data = {
+      skip: 0,
+      limit: Limit,
+      filters: filters,
+    }
+
+    getFood(data)
+    setSkip(0)
+  }
+  const handleFilters = (filters, category) => {
+    const newFilters = { ...Filters }
+    newFilters[category] = filters
+
+    if (category === 'price') {
+    }
+    showFilteredResults(newFilters)
+    setFilters(newFilters)
+  }
   return (
     <div style={{ width: '75%', margin: '3rem auto' }}>
       <div style={{ textAlign: 'center' }}>
@@ -54,6 +87,7 @@ function LandingPage() {
       </div>
 
       {/* filter */}
+      <CheckBox handleFilters={(filters) => handleFilters(filters, 'shop')} />
 
       {/* search */}
 
@@ -68,10 +102,10 @@ function LandingPage() {
         >
           <Loader
             type='Puff'
-            color='#00BFFF'
+            color='lightgreen'
             height={100}
             width={100}
-            timeout={3000} //3 secs
+            // timeout={10000} //3 secs
           />
         </div>
       ) : (
@@ -81,9 +115,11 @@ function LandingPage() {
       )}
       <br />
       <br />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <button onClick={loadMore}>Load More</button>
-      </div>
+      {PostSize >= Limit && (
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <button onClick={loadMore}>Load More</button>
+        </div>
+      )}
     </div>
   )
 }
