@@ -48,7 +48,7 @@ function UploadProduct(props) {
     e.preventDefault()
 
     if (!Food || !Description || !Price || !Shops || !Images || !Category) {
-      return alert('Please fill all fieds!')
+      return alert('Please fill all fields!')
     }
 
     const data = {
