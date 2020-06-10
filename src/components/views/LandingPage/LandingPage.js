@@ -4,12 +4,13 @@ import Loader from 'react-loader-spinner'
 import ImagesSlider from '../../Utils/ImageSlider'
 import { Col, Card, Row } from 'antd'
 import CheckBox from './Sections/CheckBox'
+import RadioBox from './Sections/RadioBox'
 const { Meta } = Card
 
 function LandingPage() {
   const [Foods, setFoods] = useState([])
   const [Skip, setSkip] = useState(0)
-  const [Limit, setLimit] = useState(8)
+  const [Limit, setLimit] = useState(12)
   const [PostSize, setPostSize] = useState(0)
   const [Filters, setFilters] = useState({
     shops: [],
@@ -53,8 +54,12 @@ function LandingPage() {
   }
   const renderCards = Foods.map((food, index) => {
     return (
-      <Col lg={6} md={8} xs={24}>
-        <Card hoverable={true} cover={<ImagesSlider images={food.image} />}>
+      <Col lg={4} md={8} xs={12}>
+        <Card
+          style={{ marginBottom: '1.5rem' }}
+          hoverable={true}
+          cover={<ImagesSlider images={food.image} />}
+        >
           <Meta title={food.name} description={`$${food.price}`}></Meta>
         </Card>
       </Col>
@@ -87,15 +92,31 @@ function LandingPage() {
       </div>
 
       {/* filter */}
-      <CheckBox handleFilters={(filters) => handleFilters(filters, 'shop')} />
 
+      <div style={{ display: 'flex' }}>
+        <div>
+          <Row gutter={[16, 16]}>
+            <Col lg={12} xs={24}>
+              <CheckBox
+                handleFilters={(filters) => handleFilters(filters, 'shop')}
+              />
+            </Col>
+            <Col lg={12} xs={24}>
+              <RadioBox />
+            </Col>
+          </Row>
+
+          <br />
+          <br />
+        </div>
+      </div>
       {/* search */}
 
       {Foods.length === 0 ? (
         <div
           style={{
             display: 'flex',
-            height: '300px',
+            height: '30rem',
             justifyContent: 'center',
             alignItems: 'center',
           }}
