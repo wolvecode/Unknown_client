@@ -3,14 +3,6 @@ import { Checkbox, Collapse } from 'antd'
 
 const Panel = Collapse
 
-const shops = [
-  { _id: 1, name: 'shop1' },
-  { _id: 2, name: 'shop2' },
-  { _id: 3, name: 'shop3' },
-  { _id: 4, name: 'shop4' },
-  { _id: 5, name: 'shop5' },
-]
-
 function CheckBox(props) {
   const [Checked, setChecked] = useState([])
 
@@ -28,7 +20,7 @@ function CheckBox(props) {
   }
 
   const renderCheckboxList = () =>
-    shops.map((shop, index) => (
+    props.shops.map((shop, index) => (
       <React.Fragment key={index}>
         <Checkbox
           onChange={() => handleToggle(shop._id)}
@@ -41,7 +33,7 @@ function CheckBox(props) {
   return (
     <div>
       <Collapse defaultActiveKey={['0']}>
-        <Panel header='Shops' key='1'>
+        <Panel header='shops' key='1'>
           {renderCheckboxList()}
         </Panel>
       </Collapse>
