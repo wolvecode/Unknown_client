@@ -15,6 +15,7 @@ function LandingPage(props) {
   const [Skip, setSkip] = useState(0)
   const [Limit, setLimit] = useState(12)
   const [PostSize, setPostSize] = useState(0)
+  const [SearchTerms, setSearchTerms] = useState('')
   const [Filters, setFilters] = useState({
     shops: [],
     prices: [],
@@ -26,6 +27,8 @@ function LandingPage(props) {
     }
     getFood(data)
   }, [])
+
+  // GET FOOD DATA FROM THE DATABASE
   const getFood = (data) => {
     axios
       .post('http://localhost:5000/api/product/getFood', data)
@@ -43,6 +46,7 @@ function LandingPage(props) {
       })
   }
 
+  //LOAD MORE BUTTON
   const loadMore = () => {
     let skip = Skip + Limit
 
@@ -54,6 +58,8 @@ function LandingPage(props) {
     getFood(data)
     setSkip(skip)
   }
+
+  // RENDER FOOD TEMPLATE
   const renderCards = Foods.map((food, index) => {
     return (
       <Col lg={4} md={6} xs={12}>
@@ -68,7 +74,7 @@ function LandingPage(props) {
     )
   })
 
-  //Display Result from filtred
+  //DISPLAY RESULT FROM FILTERED
   const showFilteredResults = (filters) => {
     const data = {
       skip: 0,
@@ -105,7 +111,18 @@ function LandingPage(props) {
     showFilteredResults(newFilters)
     setFilters(newFilters)
   }
-  const updateSearchTerms = () => {}
+  //UPDATE SEARCH TERM
+  const updateSearchTerms = (newSearchTerm) => {
+    let data = {
+      skip: 0,
+      limit: Limit,
+      filters: Filters,
+      searchTerm: newSearchTerm,
+    }
+    setSkip(0)
+    setSearchTerms(newSearchTerm)
+    getFood(data)
+  }
   return (
     <div style={{ width: '75%', margin: '3rem auto' }}>
       <div style={{ textAlign: 'center' }}>
@@ -116,26 +133,25 @@ function LandingPage(props) {
       <div style={{ display: 'flex' }}>
         <div>
           <Row gutter={[16, 16]}>
-            <Col lg={12} xs={24}>
+            <Col lg={12} xs={24} md={12}>
               <CheckBox
                 shops={shops}
                 handleFilters={(filters) => handleFilters(filters, 'shop')}
               />
             </Col>
-            <Col lg={12} xs={24}>
+            <Col lg={12} xs={24} md={12}>
               <RadioBox
                 prices={prices}
                 handleFilters={(filters) => handleFilters(filters, 'price')}
               />
             </Col>
           </Row>
-
           <br />
-          <br />
+          {/* search */}
           <SearchFeature refreshFunction={updateSearchTerms} />
+          <br />
         </div>
       </div>
-      {/* search */}
       {Foods.length === 0 ? (
         <div
           style={{
@@ -155,6 +171,7 @@ function LandingPage(props) {
         </div>
       ) : (
         <div>
+          <br />
           <Row gutter={(16, 16)}>{renderCards}</Row>
         </div>
       )}
