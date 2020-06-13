@@ -7,6 +7,7 @@ function SearchFeature(props) {
   const [SearchTerms, setSearchTerms] = useState('')
   const changeSearch = (e) => {
     setSearchTerms(e.target.value)
+    props.refreshFunction(e.target.value)
   }
   return (
     <div>
@@ -16,6 +17,7 @@ function SearchFeature(props) {
           value={SearchTerms}
           placeholder='Search by typing...'
         />
+        <br />
       </div>
     </div>
   )
