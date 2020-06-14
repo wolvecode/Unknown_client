@@ -85,7 +85,7 @@ function LandingPage(props) {
     getFood(data)
     setSkip(0)
   }
-  //Handle Price
+  //HANDLE PRICE
   const handlePrice = (value) => {
     const data = prices
     let array = []
@@ -98,7 +98,7 @@ function LandingPage(props) {
     return array
   }
 
-  //TO FILTERS FOR SHOPSA AND PRICES
+  //TO FILTER FOR SHOPS AND PRICES
   const handleFilters = (filters, category) => {
     const newFilters = { ...Filters }
     newFilters[category] = filters
