@@ -66,7 +66,11 @@ function LandingPage(props) {
         <Card
           style={{ marginBottom: '1.5rem' }}
           hoverable={true}
-          cover={<ImagesSlider images={food.image} />}
+          cover={
+            <a href={`/product/${food._id}`}>
+              <ImagesSlider images={food.image} />
+            </a>
+          }
         >
           <Meta title={food.name} description={`$${food.price}`}></Meta>
         </Card>
@@ -166,7 +170,7 @@ function LandingPage(props) {
             color='lightgreen'
             height={100}
             width={100}
-            // timeout={10000} //3 secs
+            timeout={5000} //3 secs
           />
         </div>
       ) : (
