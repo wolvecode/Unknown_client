@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Menu } from 'antd'
+import { Menu, Badge, Icon } from 'antd'
 import axios from 'axios'
 import { USER_SERVER } from '../../../Config'
 import { withRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+// import { AiOutlineShoppingCart } from 'react-icons/ai'
 
 function RightMenu(props) {
   const user = useSelector((state) => state.user)
@@ -35,12 +35,14 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key='cart'>
-          <a href='#'>
-            <AiOutlineShoppingCart
-              style={{ fontSize: '1.2rem', color: 'green' }}
-            />{' '}
-            &nbsp;1
-          </a>
+          <Badge count={1}>
+            <a href='/user/cart' style={{ marginRight: -15, color: '#667777' }}>
+              <Icon
+                type='shopping-cart'
+                style={{ fontSize: 30, marginBottom: 4 }}
+              />
+            </a>
+          </Badge>
         </Menu.Item>
         <Menu.Item key='upload'>
           <a href='/product/upload'>Upload</a>
