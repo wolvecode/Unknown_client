@@ -7,13 +7,17 @@ function FoodInfo(props) {
   useEffect(() => {
     setFood(props.detail)
   }, [props.detail])
+
+  const cartHandler = () => {
+    props.addToCart(props.detail._id)
+  }
   return (
     <div>
       <Descriptions title='Food Info'>
         <Descriptions.Item label='Price'> {Food.price} </Descriptions.Item>
         <Descriptions.Item label='Sold'> {Food.sold} </Descriptions.Item>
         <Descriptions.Item label='View'> {Food.view} </Descriptions.Item>
-        <Descriptions.Item label='Desription'>
+        <Descriptions.Item label='Description'>
           {Food.description}
         </Descriptions.Item>
       </Descriptions>
@@ -27,7 +31,7 @@ function FoodInfo(props) {
           justifyContent: 'center',
         }}
       >
-        <Button onClick type='danger' shape='round' size='large'>
+        <Button onClick={cartHandler} type='danger' shape='round' size='large'>
           Add To Cart
         </Button>
       </div>
