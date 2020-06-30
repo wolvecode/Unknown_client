@@ -88,7 +88,7 @@ export function getCartItems(cartItems, userCart) {
 
 export function removeCartItem(id) {
    const request = axios
-      .get(`/api/users/removeFromCart?id=${id}`)
+      .get(`/api/users/removeFromCart?_id=${id}`)
       .then((response) => {
          response.data.cart.forEach((item) => {
             response.data.cartDetail.forEach((k, i) => {
