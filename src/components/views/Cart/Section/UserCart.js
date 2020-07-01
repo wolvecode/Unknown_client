@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from 'antd'
 
 function UserCart(props) {
    const rendercartImage = (images) => {
@@ -21,9 +22,14 @@ function UserCart(props) {
             <td> EA {food.quantity} </td>
             <td> $ {food.price} </td>
             <td>
-               <button onClick={() => props.removeItem(food._id)}>
+               <Button
+                  type='danger'
+                  shape='square'
+                  size='medium'
+                  onClick={() => props.removeItem(food._id)}
+               >
                   Remove
-               </button>
+               </Button>
             </td>
          </tr>
       ))
