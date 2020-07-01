@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getCartItems, removeCartItem } from '../../../_actions/user_actions'
 import UserCart from './Section/UserCart'
+import PayStack from '../../Utils/RavePayment'
 import { Result, Empty } from 'antd'
 import Axios from 'axios'
+import { PaystackButton } from 'react-paystack'
 
 function Cart(props) {
-   const [Total, setTotal] = useState('0')
+   const [Total, setTotal] = useState(0)
    const [ShowTotal, setShowTotal] = useState(false)
    const [ShowSuccess, setShowSuccess] = useState(false)
    const dispatch = useDispatch()
@@ -25,6 +27,7 @@ function Cart(props) {
    }, [props.user.userData])
 
    useEffect(() => {
+      console.log(props.user.userData[2])
       if (props.user.cartDetail && props.user.cartDetail.length > 0) {
          calculateTotal(props.user.cartDetail)
       }
@@ -33,12 +36,10 @@ function Cart(props) {
    // CALCULATE THE TOTAL COST OF PRICE WITH NUMBER OF QUANTITY
    const calculateTotal = (cartDetail) => {
       let total = 0
-
       cartDetail.map((item) => {
          total += parseInt(item.price, 10) * item.quantity
-         // total = total + parseInt(item.price, 10) * item.quantity
-         console.log(total)
       })
+
       setTotal(total)
       setShowTotal(true)
    }
@@ -48,10 +49,11 @@ function Cart(props) {
       dispatch(removeCartItem(foodId)).then(() => {
          Axios.get('/api/users/userCartInfo').then((response) => {
             if (response.data.success) {
-               if (response.data.cartDetail.length <= 0) {
-                  setShowTotal(false)
+               if (response.data.cartDetail.length > 0) {
+                  // calculateTotal(response.data.cartDetail)
+                  return response.data.cartDetail
                } else {
-                  calculateTotal(response.data.cartDetail)
+                  setShowTotal(false)
                }
             } else {
                alert('Failed to get cart info.')
@@ -95,6 +97,8 @@ function Cart(props) {
                </div>
             )}
          </div>
+         {/**Bututon */}
+         <PayStack toPay={Total} emailPay={props.user.userData} />
       </div>
    )
 }
