@@ -5,7 +5,6 @@ import UserCart from './Section/UserCart'
 import PayStack from '../../Utils/RavePayment'
 import { Result, Empty } from 'antd'
 import Axios from 'axios'
-import { PaystackButton } from 'react-paystack'
 
 function Cart(props) {
    const [Total, setTotal] = useState(0)
@@ -27,7 +26,6 @@ function Cart(props) {
    }, [props.user.userData])
 
    useEffect(() => {
-      console.log(props.user.userData[2])
       if (props.user.cartDetail && props.user.cartDetail.length > 0) {
          calculateTotal(props.user.cartDetail)
       }
@@ -38,8 +36,8 @@ function Cart(props) {
       let total = 0
       cartDetail.map((item) => {
          total += parseInt(item.price, 10) * item.quantity
+         console.log(item)
       })
-
       setTotal(total)
       setShowTotal(true)
    }
@@ -98,7 +96,7 @@ function Cart(props) {
             )}
          </div>
          {/**Bututon */}
-         <PayStack toPay={Total} emailPay={props.user.userData} />
+         <PayStack toPay={Total} />
       </div>
    )
 }
