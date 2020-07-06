@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getCartItems, removeCartItem } from '../../../_actions/user_actions'
+import {
+   getCartItems,
+   removeCartItem,
+   onSuccessBuy,
+} from '../../../_actions/user_actions'
 import UserCart from './Section/UserCart'
-import PayStack from '../../Utils/RavePayment'
+import PayRave from '../../Utils/RavePayment'
 import { Result, Empty } from 'antd'
 import Axios from 'axios'
 
@@ -60,6 +64,39 @@ function Cart(props) {
       })
    }
 
+   //HANDLE SUCCESS TRANSACTION
+   const transactionSucess = (data) => {
+      let variables = {
+         cartDetail: props.user.cartDetail,
+         paymentData: data,
+      }
+
+      Axios.post('/api/users/successBuy', variables).then((response) => {
+         if (response.data.success) {
+            setShowSuccess(true)
+            setShowTotal(false)
+
+            dispatch(
+               onSuccessBuy({
+                  cart: response.data.cart,
+                  cartDetail: response.data.cartDetail,
+               })
+            )
+         } else {
+            alert('Failed to buy')
+         }
+      })
+   }
+
+   //HANDLE CANCEL TRANSACTION
+   const transactionCanceled = () => {
+      console.log('Transaction cancel')
+   }
+
+   //HANDLE ERROR TRANSACTION
+   const transactionError = () => {
+      console.log('Error in payment')
+   }
    return (
       <div style={{ width: '80%', margin: '3rem' }}>
          <h1>My Cart</h1>
@@ -95,8 +132,15 @@ function Cart(props) {
                </div>
             )}
          </div>
-         {/**Bututon */}
-         <PayStack toPay={Total} />
+
+         {ShowTotal && (
+            <PayRave
+               toPay={Total}
+               onSuccess={transactionSucess}
+               transactionError={transactionError}
+               transactionCanceled={transactionCanceled}
+            />
+         )}
       </div>
    )
 }
