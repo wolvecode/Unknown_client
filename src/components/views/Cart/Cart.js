@@ -66,6 +66,7 @@ function Cart(props) {
 
    //HANDLE SUCCESS TRANSACTION
    const transactionSucess = (data) => {
+      console.log(data)
       let variables = {
          cartDetail: props.user.cartDetail,
          paymentData: data,
@@ -139,6 +140,7 @@ function Cart(props) {
                onSuccess={transactionSucess}
                transactionError={transactionError}
                transactionCanceled={transactionCanceled}
+               userInfo={props.user.userData}
             />
          )}
       </div>
