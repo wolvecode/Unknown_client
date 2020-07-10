@@ -40,7 +40,6 @@ function Cart(props) {
       let total = 0
       cartDetail.map((item) => {
          total += parseInt(item.price, 10) * item.quantity
-         console.log(item)
       })
       setTotal(total)
       setShowTotal(true)
@@ -66,7 +65,7 @@ function Cart(props) {
 
    //HANDLE SUCCESS TRANSACTION
    const transactionSucess = (data) => {
-      console.log(data)
+      console.log(data.tx.id)
       let variables = {
          cartDetail: props.user.cartDetail,
          paymentData: data,
@@ -92,6 +91,7 @@ function Cart(props) {
    //HANDLE CANCEL TRANSACTION
    const transactionCanceled = () => {
       console.log('Transaction cancel')
+      console.log(props.user.cartDetail)
    }
 
    //HANDLE ERROR TRANSACTION
