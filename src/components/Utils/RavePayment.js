@@ -6,17 +6,23 @@ class RavePayment extends Component {
       super(props)
       this.state = {
          key: 'FLWPUBK_TEST-1698436ccb9a38d881340a6c01559c12-X', // RavePay PUBLIC KEY
-         phone: '0000000000000',
          amount: this.props.toPay,
-         firstname: 'Oluwole',
-         lastname: 'Adebiyi',
-         email: this.props.user,
+         name: '',
+         email: '',
       }
       this.onSuccess = this.onSuccess.bind(this)
       this.onCancel = this.onCancel.bind(this)
    }
    componentDidMount() {
-      console.log(this.props.info)
+      if (
+         (this.props.userInfo && this.props.userInfo.email,
+         this.props.userInfo.name)
+      ) {
+         this.setState({
+            email: this.props.userInfo.email,
+            name: this.props.userInfo.name,
+         })
+      }
    }
    onSuccess = (response) => {
       console.log('The paymesnt was succesful', response)
@@ -25,26 +31,19 @@ class RavePayment extends Component {
 
    onCancel = () => {
       console.log('Payment cancel')
+      this.props.transactionCanceled()
    }
 
    render() {
       return (
-         <div
-            style={{
-               width: '200rem',
-               fontSize: '1rem',
-               fontWeight: 'bold',
-            }}
-         >
+         <div className='App'>
             <Rave
                pay_button_text='Pay With Rave'
                class='button'
-               redirect_url='http://localhost:3000/user/cart'
+               redirect_url='/user/cart'
                payment_method='card'
-               customer_firstname={this.state.firstname}
-               customer_lastname={this.state.lastname}
+               customer_name={this.state.name}
                customer_email={this.state.email}
-               customer_phone={this.state.phone}
                amount={this.state.amount}
                ravePubKey={this.state.key}
                callback={this.onSuccess}
