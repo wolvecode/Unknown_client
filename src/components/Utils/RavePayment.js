@@ -40,7 +40,6 @@ class RavePayment extends Component {
             <Rave
                pay_button_text='Pay With Rave'
                class='button'
-               redirect_url='/user/cart'
                payment_method='card'
                customer_name={this.state.name}
                customer_email={this.state.email}
