@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Menu, Badge, Icon } from 'antd'
+import { Menu, Badge, Icon, Divider } from 'antd'
 import axios from 'axios'
 import { USER_SERVER } from '../../../Config'
 import { withRouter } from 'react-router-dom'
@@ -22,14 +22,16 @@ function RightMenu(props) {
 
    if (user.userData && !user.userData.isAuth) {
       return (
-         <Menu mode={props.mode}>
-            <Menu.Item key='mail'>
-               <a href='/login'>Signin</a>
-            </Menu.Item>
-            <Menu.Item key='app'>
-               <a href='/register'>Signup</a>
-            </Menu.Item>
-         </Menu>
+         <div style={{ marginRight: '6rem' }}>
+            <Menu mode={props.mode}>
+               <Menu.Item key='mail'>
+                  <a href='/login'>Signin</a>
+               </Menu.Item>
+               <Menu.Item key='app'>
+                  <a href='/register'>Signup</a>
+               </Menu.Item>
+            </Menu>
+         </div>
       )
    } else {
       return (
