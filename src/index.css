@@ -40,3 +40,66 @@ input.error {
    height: 5px;
    margin-top: -12px;
 }
+
+.footer {
+   background: #3d3d3d;
+   font-size: 1rem;
+}
+.section {
+   margin: auto 8rem;
+}
+
+.footer-section {
+   color: #f5f5f5;
+   display: flex;
+   margin: 1rem 0rem;
+   padding: 1rem 0rem;
+}
+.footer-section h3 {
+   color: #f5f5f5;
+}
+.footer-section a {
+   color: #969696;
+}
+
+.footer-section a:hover {
+   text-decoration: underline;
+   color: #969696;
+}
+.footer-column {
+   margin-right: 6rem;
+}
+
+.footer-line {
+   height: 0.1rem;
+   background-color: #5f5f5f;
+}
+
+.footer-copyright {
+   color: #5f5f5f;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin-top: 2rem;
+   padding-bottom: 3rem;
+}
+
+.right {
+   float: right;
+}
+.right a {
+   font-size: 1.5rem;
+   padding: 0.5rem;
+   text-decoration: none;
+   color: #5f5f5f;
+}
+.right a:hover {
+   color: #5f5f5f;
+}
+
+.footer-copyright span {
+   color: #ec3237;
+}
+.left {
+   font-size: 0.95rem;
+}
