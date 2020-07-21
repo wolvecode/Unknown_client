@@ -41,6 +41,10 @@ input.error {
    margin-top: -12px;
 }
 
+/* 
+FOOTER PAGE STYLING  
+*/
+
 .footer {
    background: #3d3d3d;
    font-size: 1rem;
@@ -63,7 +67,6 @@ input.error {
 }
 
 .footer-section a:hover {
-   text-decoration: underline;
    color: #969696;
 }
 .footer-column {
@@ -102,4 +105,13 @@ input.error {
 }
 .left {
    font-size: 0.95rem;
+}
+
+/* 
+LANDING PAGE STYLING 
+*/
+
+.landing {
+   background: url(img/people-standing-in-front-of-table-with-foods-4261997.jpg);
+   background-size: cover;
 }
