@@ -130,68 +130,70 @@ function LandingPage(props) {
       getFood(data)
    }
    return (
-      <div style={{ width: '75%', margin: '3rem auto' }}>
-         <div style={{ textAlign: 'center' }}>
-            <h2>All Food Available</h2>
+      <div className='landing'>
+         <div style={{ width: '75%', margin: '3rem auto' }}>
+            <div style={{ textAlign: 'center' }}>
+               <h2>All Food Available</h2>
+            </div>
+            {/* filter */}
+            prices, shops
+            <div style={{ display: 'flex' }}>
+               <div>
+                  <Row gutter={[16, 16]}>
+                     <Col lg={12} xs={24} md={12}>
+                        <CheckBox
+                           shops={shops}
+                           handleFilters={(filters) =>
+                              handleFilters(filters, 'shop')
+                           }
+                        />
+                     </Col>
+                     <Col lg={12} xs={24} md={12}>
+                        <RadioBox
+                           prices={prices}
+                           handleFilters={(filters) =>
+                              handleFilters(filters, 'price')
+                           }
+                        />
+                     </Col>
+                  </Row>
+                  <br />
+                  {/* search */}
+                  <SearchFeature refreshFunction={updateSearchTerms} />
+                  <br />
+               </div>
+            </div>
+            {Foods.length === 0 ? (
+               <div
+                  style={{
+                     display: 'flex',
+                     height: '30rem',
+                     justifyContent: 'center',
+                     alignItems: 'center',
+                  }}
+               >
+                  <Loader
+                     type='Puff'
+                     color='lightgreen'
+                     height={100}
+                     width={100}
+                     timeout={5000} //3 secs
+                  />
+               </div>
+            ) : (
+               <div>
+                  <br />
+                  <Row gutter={(16, 16)}>{renderCards}</Row>
+               </div>
+            )}
+            <br />
+            <br />
+            {PostSize >= Limit && (
+               <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <button onClick={loadMore}>Load More</button>
+               </div>
+            )}
          </div>
-         {/* filter */}
-         prices, shops
-         <div style={{ display: 'flex' }}>
-            <div>
-               <Row gutter={[16, 16]}>
-                  <Col lg={12} xs={24} md={12}>
-                     <CheckBox
-                        shops={shops}
-                        handleFilters={(filters) =>
-                           handleFilters(filters, 'shop')
-                        }
-                     />
-                  </Col>
-                  <Col lg={12} xs={24} md={12}>
-                     <RadioBox
-                        prices={prices}
-                        handleFilters={(filters) =>
-                           handleFilters(filters, 'price')
-                        }
-                     />
-                  </Col>
-               </Row>
-               <br />
-               {/* search */}
-               <SearchFeature refreshFunction={updateSearchTerms} />
-               <br />
-            </div>
-         </div>
-         {Foods.length === 0 ? (
-            <div
-               style={{
-                  display: 'flex',
-                  height: '30rem',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-               }}
-            >
-               <Loader
-                  type='Puff'
-                  color='lightgreen'
-                  height={100}
-                  width={100}
-                  timeout={5000} //3 secs
-               />
-            </div>
-         ) : (
-            <div>
-               <br />
-               <Row gutter={(16, 16)}>{renderCards}</Row>
-            </div>
-         )}
-         <br />
-         <br />
-         {PostSize >= Limit && (
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-               <button onClick={loadMore}>Load More</button>
-            </div>
-         )}
       </div>
    )
 }
