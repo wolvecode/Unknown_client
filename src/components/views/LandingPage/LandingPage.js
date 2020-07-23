@@ -130,69 +130,132 @@ function LandingPage(props) {
       getFood(data)
    }
    return (
-      <div className='landing'>
-         <div style={{ width: '75%', margin: '3rem auto' }}>
-            <div style={{ textAlign: 'center' }}>
-               <h2>All Food Available</h2>
+      <div>
+         <div className='top-landing'>
+            <div style={{ width: '75%', margin: '3rem auto' }}>
+               <div style={{ textAlign: 'center' }}>
+                  <h2>All Food Available</h2>
+               </div>
+               {/* filter */}
+               prices, shops
+               <div style={{ display: 'flex' }}>
+                  <div>
+                     <Row gutter={[16, 16]}>
+                        <Col lg={12} xs={24} md={12}>
+                           <CheckBox
+                              shops={shops}
+                              handleFilters={(filters) =>
+                                 handleFilters(filters, 'shop')
+                              }
+                           />
+                        </Col>
+                        <Col lg={12} xs={24} md={12}>
+                           <RadioBox
+                              prices={prices}
+                              handleFilters={(filters) =>
+                                 handleFilters(filters, 'price')
+                              }
+                           />
+                        </Col>
+                     </Row>
+                     <br />
+                     {/* search */}
+                     <SearchFeature refreshFunction={updateSearchTerms} />
+                     <br />
+                  </div>
+               </div>
+               {Foods.length === 0 ? (
+                  <div
+                     style={{
+                        display: 'flex',
+                        height: '30rem',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                     }}
+                  >
+                     <Loader
+                        type='Puff'
+                        color='lightgreen'
+                        height={100}
+                        width={100}
+                        timeout={5000} //3 secs
+                     />
+                  </div>
+               ) : (
+                  <div>
+                     <br />
+                     <Row gutter={(16, 16)}>{renderCards}</Row>
+                  </div>
+               )}
+               <br />
+               <br />
+               {PostSize >= Limit && (
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                     <button onClick={loadMore}>Load More</button>
+                  </div>
+               )}
             </div>
-            {/* filter */}
-            prices, shops
-            <div style={{ display: 'flex' }}>
-               <div>
-                  <Row gutter={[16, 16]}>
-                     <Col lg={12} xs={24} md={12}>
-                        <CheckBox
-                           shops={shops}
-                           handleFilters={(filters) =>
-                              handleFilters(filters, 'shop')
-                           }
-                        />
-                     </Col>
-                     <Col lg={12} xs={24} md={12}>
-                        <RadioBox
-                           prices={prices}
-                           handleFilters={(filters) =>
-                              handleFilters(filters, 'price')
-                           }
-                        />
-                     </Col>
-                  </Row>
-                  <br />
-                  {/* search */}
-                  <SearchFeature refreshFunction={updateSearchTerms} />
-                  <br />
+         </div>
+         <div className='middle-landing'>
+            <div className='how-it-works'>
+               <h3>How it works</h3>
+               <div className='work-section'>
+                  <div className='work'>
+                     <span>
+                        <i class='fas fa-map-marker-alt'></i>
+                     </span>
+                     <h4>Discover</h4>
+                     <p>Find Your Local restaurants</p>
+                  </div>
+                  <div className='work'>
+                     <span>
+                        <i class='fas fa-clipboard-check'></i>
+                     </span>
+                     <h4>Add Your Menu</h4>
+                     <p>Choose Your favourite Menu</p>
+                  </div>
+                  <div className='work'>
+                     <span>
+                        <i class='fas fa-money-check-alt'></i>
+                     </span>
+                     <h4>Place Order</h4>
+                     <p>Pay by Card online Or Cash on Delivery</p>
+                  </div>
+                  <div className='work'>
+                     <span>
+                        <i class='fas fa-truck'></i>
+                     </span>
+                     <h4>Get Delivered</h4>
+                     <p>Food is delivered at your doorstep</p>
+                  </div>
                </div>
             </div>
-            {Foods.length === 0 ? (
-               <div
-                  style={{
-                     display: 'flex',
-                     height: '30rem',
-                     justifyContent: 'center',
-                     alignItems: 'center',
-                  }}
-               >
-                  <Loader
-                     type='Puff'
-                     color='lightgreen'
-                     height={100}
-                     width={100}
-                     timeout={5000} //3 secs
-                  />
+            <div className='favourite-restaurant'></div>
+            <div className='cuisines'>
+               <h3>CUISINES</h3>
+               <div className='cuisines-section'>
+                  <div className='cuise'>
+                     <p>American</p>
+                     <p>Pizza</p>
+                     <p>Pastries and Cakes</p>
+                  </div>
+                  <div className='cuise'>
+                     <p>Nigerian</p>
+                     <p>Chinese</p>
+                     <p>Beverage Drinks</p>
+                  </div>
+                  <div className='cuise'>
+                     <p>Vegetarian</p>
+                     <p>African</p>
+                     <p>Breakfast</p>
+                  </div>
+                  <div className='cuise'>
+                     <p>Alcoholic Drinks</p>
+                     <p>Carribean</p>
+                     <p>Burgers</p>
+                  </div>
                </div>
-            ) : (
-               <div>
-                  <br />
-                  <Row gutter={(16, 16)}>{renderCards}</Row>
-               </div>
-            )}
-            <br />
-            <br />
-            {PostSize >= Limit && (
-               <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <button onClick={loadMore}>Load More</button>
-               </div>
-            )}
+            </div>
          </div>
       </div>
    )
