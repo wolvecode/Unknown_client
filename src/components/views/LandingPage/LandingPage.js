@@ -133,11 +133,7 @@ function LandingPage(props) {
       <div>
          <div className='top-landing'>
             <div style={{ width: '75%', margin: '3rem auto' }}>
-               <div style={{ textAlign: 'center' }}>
-                  <h2>All Food Available</h2>
-               </div>
                {/* filter */}
-               prices, shops
                <div style={{ display: 'flex' }}>
                   <div>
                      <Row gutter={[16, 16]}>
@@ -164,41 +160,11 @@ function LandingPage(props) {
                      <br />
                   </div>
                </div>
-               {Foods.length === 0 ? (
-                  <div
-                     style={{
-                        display: 'flex',
-                        height: '30rem',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                     }}
-                  >
-                     <Loader
-                        type='Puff'
-                        color='lightgreen'
-                        height={100}
-                        width={100}
-                        timeout={5000} //3 secs
-                     />
-                  </div>
-               ) : (
-                  <div>
-                     <br />
-                     <Row gutter={(16, 16)}>{renderCards}</Row>
-                  </div>
-               )}
-               <br />
-               <br />
-               {PostSize >= Limit && (
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                     <button onClick={loadMore}>Load More</button>
-                  </div>
-               )}
             </div>
          </div>
          <div className='middle-landing'>
             <div className='how-it-works'>
-               <h3>How it works</h3>
+               <h3>HOW IT WORKS</h3>
                <div className='work-section'>
                   <div className='work'>
                      <span>
@@ -230,7 +196,11 @@ function LandingPage(props) {
                   </div>
                </div>
             </div>
-            <div className='favourite-restaurant'></div>
+            <div className='favourite-restaurant'>
+               <h3>FAVOURITE RESTAURANT</h3>
+               <div className='restau'></div>
+               <div className='restaurant-section'></div>
+            </div>
             <div className='cuisines'>
                <h3>CUISINES</h3>
                <div className='cuisines-section'>
@@ -255,6 +225,43 @@ function LandingPage(props) {
                      <p>Burgers</p>
                   </div>
                </div>
+            </div>
+         </div>
+         <div>
+            <div className='list-of-food-nav'>
+               <h2>Available Foods</h2>
+            </div>
+            <div className='display-food'>
+               {Foods.length === 0 ? (
+                  <div
+                     style={{
+                        display: 'flex',
+                        height: '30rem',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                     }}
+                  >
+                     <Loader
+                        type='Puff'
+                        color='lightgreen'
+                        height={100}
+                        width={100}
+                        timeout={5000} //3 secs
+                     />
+                  </div>
+               ) : (
+                  <div>
+                     <br />
+                     <Row gutter={(16, 16)}>{renderCards}</Row>
+                  </div>
+               )}
+               <br />
+               <br />
+               {PostSize >= Limit && (
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                     <button onClick={loadMore}>Load More</button>
+                  </div>
+               )}
             </div>
          </div>
       </div>
