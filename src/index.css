@@ -114,12 +114,14 @@ LANDING PAGE STYLING
 .top-landing {
    background: url(img/people-standing-in-front-of-table-with-foods-4261997.jpg);
    background-size: cover;
+   height: 30rem;
 }
 
 .middle-landing h3 {
    text-align: center;
    color: #323232;
    font-size: 1.5rem;
+   margin-top: 2rem;
 }
 
 .work-section {
@@ -172,4 +174,22 @@ CUISINES STYLING
    text-align: center;
    color: #323232;
    font-size: 1.5rem;
+}
+
+/* 
+DISPLAY OF FOOD 
+
+*/
+
+.display-food {
+   margin: 2rem 8rem;
+}
+
+.list-of-food-nav {
+   background-color: #ec3237;
+   height: 3rem;
+   margin: 0rem 3rem;
+   padding: 0.5rem;
+   color: #323232;
+   text-align: center;
 }
