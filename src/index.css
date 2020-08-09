@@ -56,6 +56,7 @@ FOOTER PAGE STYLING
 .footer-section {
    color: #f5f5f5;
    display: flex;
+   flex-wrap: wrap;
    margin: 1rem 0rem;
    padding: 1rem 0rem;
 }
@@ -73,18 +74,6 @@ FOOTER PAGE STYLING
    margin-right: 6rem;
 }
 
-@media (max-width: 575.98px) {
-   .section {
-      margin: auto 2rem;
-   }
-
-   .footer-section {
-      color: #f5f5f5;
-      display: flex;
-      margin: 1rem 0rem;
-      padding: 1rem 0rem;
-   }
-}
 .footer-line {
    height: 0.1rem;
    background-color: #5f5f5f;
@@ -120,6 +109,32 @@ FOOTER PAGE STYLING
 }
 
 /* 
+Medium and small size screen for footer
+
+*/
+
+@media (max-width: 575.98px) {
+   .footer {
+      justify-content: center;
+      background: #3d3d3d;
+      font-size: 0.7rem;
+   }
+   .footer-section {
+      color: #f5f5f5;
+      display: flex;
+      margin: 0.8rem 0rem;
+      padding: 0.8rem 0rem;
+   }
+   .section {
+      justify-content: center;
+      margin: auto 1rem;
+   }
+   .footer-column {
+      margin-right: 2.5rem;
+   }
+}
+
+/* 
 LANDING PAGE STYLING 
 */
 
@@ -127,6 +142,10 @@ LANDING PAGE STYLING
    background: url(img/people-standing-in-front-of-table-with-foods-4261997.jpg);
    background-size: cover;
    height: 30rem;
+   display: flex;
+}
+.landing-search {
+   margin: auto;
 }
 
 .middle-landing h3 {
@@ -196,15 +215,6 @@ DISPLAY OF FOOD
 .display-food {
    margin: 2rem 8rem;
 }
-
-/* .list-of-food-nav {
-   background-color: #ec3237;
-   height: 3rem;
-   margin: 0rem 3rem;
-   padding: 0.5rem;
-   color: #323232;
-   text-align: center;
-} */
 
 .list-of-food-nav h2 {
    text-align: center;
