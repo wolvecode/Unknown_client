@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Input } from 'antd'
-import { changeConfirmLocale } from 'antd/lib/modal/locale'
 
 const { Search } = Input
 function SearchFeature(props) {
