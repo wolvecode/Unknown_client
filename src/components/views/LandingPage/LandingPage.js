@@ -13,7 +13,7 @@ const { Meta } = Card
 function LandingPage(props) {
    const [Foods, setFoods] = useState([])
    const [Skip, setSkip] = useState(0)
-   const [Limit, setLimit] = useState(12)
+   const [Limit, setLimit] = useState(6)
    const [PostSize, setPostSize] = useState(0)
    const [SearchTerms, setSearchTerms] = useState('')
    const [Filters, setFilters] = useState({
@@ -63,7 +63,7 @@ function LandingPage(props) {
    // RENDER FOOD TEMPLATE
    const renderCards = Foods.map((food, index) => {
       return (
-         <Col lg={4} md={6} xs={12}>
+         <Col lg={4} md={12} xs={12}>
             <Card
                style={{ marginBottom: '1.5rem' }}
                hoverable={true}
@@ -132,45 +132,18 @@ function LandingPage(props) {
    return (
       <div>
          <div className='top-landing'>
-            <div style={{ display: 'flex' }}>
-               {/* filter */}
-               <div
-                  style={{
-                     width: '45rem',
-                     margin: 'auto',
-                  }}
-               >
-                  <div>
-                     <div>
-                        <Row>
-                           <Col lg={12} xs={24} md={12}>
-                              <CheckBox
-                                 shops={shops}
-                                 handleFilters={(filters) =>
-                                    handleFilters(filters, 'shop')
-                                 }
-                              />
-                           </Col>
-                           {/* <Col lg={12} xs={24} md={12}>
-                              <RadioBox
-                                 prices={prices}
-                                 handleFilters={(filters) =>
-                                    handleFilters(filters, 'price')
-                                 }
-                              />
-                           </Col> */}
-                        </Row>
-                     </div>
-                     <br />
-                     {/* search */}
-                     <SearchFeature refreshFunction={updateSearchTerms} />
-                     <br />
-                  </div>
-               </div>
+            <div className='landing-search'>
+               <SearchFeature refreshFunction={updateSearchTerms} />
             </div>
+            {/* <div>
+               <CheckBox
+                  shops={shops}
+                  handleFilters={(filters) => handleFilters(filters, 'shop')}
+               />
+            </div> */}
          </div>
          <div>
-            <div className='list-of-food-nav'>
+            <div className='available-food'>
                <h2>Available Foods</h2>
             </div>
             <div className='display-food'>
@@ -178,9 +151,7 @@ function LandingPage(props) {
                   <div
                      style={{
                         display: 'flex',
-                        height: '30rem',
                         justifyContent: 'center',
-                        alignItems: 'center',
                      }}
                   >
                      <Loader
@@ -200,7 +171,12 @@ function LandingPage(props) {
                <br />
                <br />
                {PostSize >= Limit && (
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div
+                     style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                     }}
+                  >
                      <button onClick={loadMore}>Load More</button>
                   </div>
                )}
@@ -240,11 +216,11 @@ function LandingPage(props) {
                   </div>
                </div>
             </div>
-            <div className='favourite-restaurant'>
+            {/* <div className='favourite-restaurant'>
                <h3>FAVOURITE RESTAURANT</h3>
                <div className='restau'></div>
                <div className='restaurant-section'></div>
-            </div>
+            </div> */}
             <div className='cuisines'>
                <h3>CUISINES</h3>
                <div className='cuisines-section'>
