@@ -21,7 +21,7 @@ function NavBar() {
          style={{ position: 'fixed', zIndex: 5, width: '100%' }}
       >
          <div className='menu__logo'>
-            <a style={{ color: 'green', marginLeft: '7rem' }} href='/'>
+            <a style={{ color: 'green' }} href='/'>
                MFE
             </a>
          </div>
