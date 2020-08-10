@@ -109,8 +109,7 @@ FOOTER PAGE STYLING
 }
 
 /* 
-Medium and small size screen for footer
-
+MEDIUM AND SMALL SCREEN STYLE FOR FOOTER
 */
 
 @media (max-width: 575.98px) {
@@ -148,6 +147,10 @@ LANDING PAGE STYLING
    margin: auto;
 }
 
+/* 
+Middle of landing page
+*/
+
 .middle-landing h3 {
    text-align: center;
    color: #323232;
@@ -170,7 +173,6 @@ LANDING PAGE STYLING
 }
 .work h4 {
    color: #000000;
-
    font-size: 1.2rem;
    font-weight: normal;
 }
@@ -185,18 +187,53 @@ LANDING PAGE STYLING
 }
 
 /* 
-
-CUISINES STYLING 
-
+SMALL AND MEDIUM SCREEN FOR HOW IT WORKS 
 */
+/* @media (min-width: 576px) {
+   work-section {
+      margin: auto 2rem;
+   }
+} */
 
+@media (max-width: 575.98px) {
+   .middle-landing h3 {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+   }
+
+   .work-section {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto 3.5rem;
+   }
+
+   .work {
+      width: 8rem;
+      padding: 1rem 0.8rem;
+   }
+   .work h4 {
+      font-size: 0.8rem;
+      font-weight: normal;
+   }
+   .work span {
+      color: #ec3237;
+      padding: auto;
+      font-size: 2rem;
+   }
+}
+
+/*
+CUISINES STYLING
+ */
 .cuisines-section {
-   margin: auto 11rem;
+   margin: auto 10rem;
+   flex-wrap: wrap;
    display: flex;
 }
 
 .cuise {
-   width: 20rem;
+   width: 14rem;
    color: #646464;
    padding: 2rem 0rem;
 }
@@ -207,26 +244,34 @@ CUISINES STYLING
    font-size: 1.5rem;
 }
 
+/*
+ SMALL AND MEDIUM SCREEN FOR CUISINE
+*/
+
+@media (max-width: 575.98px) {
+   .cuisines {
+      display: none;
+   }
+}
+
 /* 
 DISPLAY OF FOOD 
-
 */
 
 .display-food {
    margin: 2rem 8rem;
 }
 
-.list-of-food-nav h2 {
+.available-food h2 {
    text-align: center;
    margin-top: 2rem;
 }
 
-/* @media (max-width: 575.98px) {
-   body,
-   html {
-      font-size: 0.75rem;
+/* 
+SMALL SCREEN FOR FOOD DISPLAY 
+*/
+@media (max-width: 575.98px) {
+   .display-food {
+      margin: 1rem 2rem;
    }
-   .footer {
-      display: none;
-   } 
-}  */
+}
