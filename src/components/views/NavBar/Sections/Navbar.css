@@ -19,6 +19,11 @@
    padding: 19px 20px;
    margin-left: 4rem;
 }
+@media (max-width: 575.98px) {
+   .menu__logo a {
+      margin-left: 4rem;
+   }
+}
 
 .menu__container .ant-menu-item {
    padding: 0px 5px;
@@ -51,7 +56,8 @@
    padding: 6px;
    margin-top: 8px;
    display: none !important; /* use of important to overwrite ant-btn */
-   background: #3e91f7;
+   background: #ec3237;
+   border-color: none;
 }
 
 .menu_drawer .ant-drawer-body {
