@@ -34,7 +34,7 @@ function UserCart(props) {
          </tr>
       ))
    return (
-      <div>
+      <div style={{ overflowX: 'auto' }}>
          <table>
             <thead>
                <tr style={{ width: '100%', border: '0.5rem solid' }}>
