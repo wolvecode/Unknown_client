@@ -99,14 +99,14 @@ function Cart(props) {
       console.log('Error in payment')
    }
    return (
-      <div style={{ width: '80%', margin: '3rem' }}>
+      <div style={{ width: '85%', margin: '3rem auto' }}>
          <h1>My Cart</h1>
          <div
-            style={{
-               width: '100%',
-               justifyContent: 'center',
-               alignItems: 'center',
-            }}
+         // style={{
+         //    width: '100%',
+         //    justifyContent: 'center',
+         //    alignItems: 'center',
+         // }}
          >
             <UserCart
                foods={props.user.cartDetail}
