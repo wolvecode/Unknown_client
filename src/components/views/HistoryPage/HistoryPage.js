@@ -27,16 +27,14 @@ function HistoryPage() {
                }}
             >
                <tr>
-                  <th>Payemend Id</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
+                  <th>Food Name</th>
+                  <th>Food Price</th>
+                  <th>Food Quantity</th>
                   <th>Date Of Purchase</th>
                </tr>
                {History.map((item) => (
                   <tr key={item._id}>
-                     <td style={{ border: '1px', padding: '0.5rem' }}>
-                        {item.id}
-                     </td>
+                     <td>{item.name}</td>
                      <td>{item.price}</td>
                      <td>{item.quantity}</td>
                      <td>{item.dateOfPurchase}</td>
