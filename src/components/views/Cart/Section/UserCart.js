@@ -14,7 +14,7 @@ function UserCart(props) {
          <tr key={food._id}>
             <td>
                <img
-                  style={{ width: '70px' }}
+                  style={{ width: '60px' }}
                   src={rendercartImage(food.image)}
                   alt='foodImage'
                />
@@ -34,17 +34,17 @@ function UserCart(props) {
          </tr>
       ))
    return (
-      <div style={{ overflowX: 'auto' }}>
+      <div>
          <table>
             <thead>
-               <tr style={{ width: '100%', border: '0.5rem solid' }}>
-                  <th style={{ paddingRight: '10rem' }}>Food Image</th>
-                  <th style={{ paddingRight: '10rem' }}>Food Quantity</th>
-                  <th style={{ paddingRight: '10rem' }}>Food Price </th>
-                  <th style={{ paddingRight: 'rem' }}>Remove From Cart</th>
+               <tr>
+                  <th>Food Image</th>
+                  <th>Food Quantity</th>
+                  <th>Food Price</th>
+                  <th>Remove from Cart</th>
                </tr>
             </thead>
-            <tbody>{renderItems()} </tbody>
+            <tbody>{renderItems()}</tbody>
          </table>
       </div>
    )
