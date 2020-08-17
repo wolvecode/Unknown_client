@@ -159,8 +159,11 @@ function LandingPage(props) {
                         color='lightgreen'
                         height={100}
                         width={100}
-                        timeout={5000} //3 secs
+                        timeout={4000} //3 secs
                      />
+                     <div style={{ display: 'block' }}>
+                        <h3>No Food Available</h3>
+                     </div>
                   </div>
                ) : (
                   <div>
@@ -183,44 +186,37 @@ function LandingPage(props) {
             </div>
          </div>
          <div className='middle-landing'>
-            <div className='how-it-works'>
-               <h3>HOW IT WORKS</h3>
-               <div className='work-section'>
-                  <div className='work'>
-                     <span>
-                        <i class='fas fa-map-marker-alt'></i>
-                     </span>
-                     <h4>Discover</h4>
-                     <p>Find Your Local restaurants</p>
-                  </div>
-                  <div className='work'>
-                     <span>
-                        <i class='fas fa-clipboard-check'></i>
-                     </span>
-                     <h4>Add Your Menu</h4>
-                     <p>Choose Your favourite Menu</p>
-                  </div>
-                  <div className='work'>
-                     <span>
-                        <i class='fas fa-money-check-alt'></i>
-                     </span>
-                     <h4>Place Order</h4>
-                     <p>Pay by Card online Or Cash on Delivery</p>
-                  </div>
-                  <div className='work'>
-                     <span>
-                        <i class='fas fa-truck'></i>
-                     </span>
-                     <h4>Get Delivered</h4>
-                     <p>Food is delivered at your doorstep</p>
-                  </div>
+            <h3>HOW IT WORKS</h3>
+            <div className='work-section'>
+               <div className='work'>
+                  <span>
+                     <i class='fas fa-map-marker-alt'></i>
+                  </span>
+                  <h4>Discover</h4>
+                  <p>Find Your Local restaurants</p>
+               </div>
+               <div className='work'>
+                  <span>
+                     <i class='fas fa-clipboard-check'></i>
+                  </span>
+                  <h4>Add Your Menu</h4>
+                  <p>Choose Your favourite Menu</p>
+               </div>
+               <div className='work'>
+                  <span>
+                     <i class='fas fa-money-check-alt'></i>
+                  </span>
+                  <h4>Place Order</h4>
+                  <p>Pay by Card online Or Cash on Delivery</p>
+               </div>
+               <div className='work'>
+                  <span>
+                     <i class='fas fa-truck'></i>
+                  </span>
+                  <h4>Get Delivered</h4>
+                  <p>Food is delivered at your doorstep</p>
                </div>
             </div>
-            {/* <div className='favourite-restaurant'>
-               <h3>FAVOURITE RESTAURANT</h3>
-               <div className='restau'></div>
-               <div className='restaurant-section'></div>
-            </div> */}
             <div className='cuisines'>
                <h3>CUISINES</h3>
                <div className='cuisines-section'>
