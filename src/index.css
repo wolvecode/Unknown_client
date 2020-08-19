@@ -272,3 +272,29 @@ SMALL SCREEN FOR FOOD DISPLAY
       margin: 1rem 2rem;
    }
 }
+
+.ravebutton {
+   color: #fff;
+   font-weight: bolder;
+   font-size: large;
+   height: 4rem;
+   background-color: rgb(112, 188, 211);
+   width: 18rem;
+   border: none;
+}
+
+.ravebutton:hover {
+   transition: ease-in;
+   transition-duration: 0.4s;
+   cursor: pointer;
+   color: black;
+   background-color: rgb(145, 184, 196);
+}
+
+@media (max-width: 575.98px) {
+   .ravebutton {
+      font-weight: normal;
+      height: 3rem;
+      width: 12rem;
+   }
+}

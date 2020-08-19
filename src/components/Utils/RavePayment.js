@@ -39,7 +39,7 @@ class RavePayment extends Component {
          <div className='App'>
             <Rave
                pay_button_text='Pay With Rave'
-               class='button'
+               class='ravebutton'
                payment_method='card'
                customer_name={this.state.name}
                customer_email={this.state.email}

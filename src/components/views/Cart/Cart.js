@@ -101,13 +101,7 @@ function Cart(props) {
    return (
       <div style={{ width: '85%', margin: '3rem auto' }}>
          <h1>My Cart</h1>
-         <div
-         // style={{
-         //    width: '100%',
-         //    justifyContent: 'center',
-         //    alignItems: 'center',
-         // }}
-         >
+         <div>
             <UserCart
                foods={props.user.cartDetail}
                removeItem={removeFromCart}
