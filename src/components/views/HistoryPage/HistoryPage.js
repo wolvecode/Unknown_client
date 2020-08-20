@@ -21,9 +21,10 @@ function HistoryPage() {
          <div>
             <table
                style={{
+                  justifyContent: 'center',
+                  textJustify: 'center',
                   borderCollapse: 'collapse',
                   width: '100%',
-                  a: 'center',
                }}
             >
                <tr>

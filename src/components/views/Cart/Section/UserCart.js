@@ -34,8 +34,8 @@ function UserCart(props) {
          </tr>
       ))
    return (
-      <div>
-         <table>
+      <div style={{ marginRight: '3rem', width: '100%' }}>
+         <table style={{ width: '100%' }}>
             <thead>
                <tr>
                   <th>Food Image</th>
