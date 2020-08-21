@@ -118,7 +118,7 @@ function LandingPage(props) {
    }
    //UPDATE SEARCH TERM
    const updateSearchTerms = (newSearchTerm) => {
-      console.log(SearchTerms)
+  
       let data = {
          skip: 0,
          limit: Limit,
