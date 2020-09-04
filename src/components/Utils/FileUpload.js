@@ -28,7 +28,7 @@ function FileUpload(props) {
                setImages([...Images, response.data.image])
                props.refreshFunction([...Images, response.data.image])
             } else {
-               alert('failed to save image')
+               alert('Error while saving image')
             }
          })
    }
