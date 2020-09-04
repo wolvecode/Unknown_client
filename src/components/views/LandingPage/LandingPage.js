@@ -62,6 +62,7 @@ function LandingPage(props) {
 
    // RENDER FOOD TEMPLATE
    const renderCards = Foods.map((food, index) => {
+      console.log(food)
       return (
          <Col lg={4} md={12} xs={12}>
             <Card
@@ -118,7 +119,6 @@ function LandingPage(props) {
    }
    //UPDATE SEARCH TERM
    const updateSearchTerms = (newSearchTerm) => {
-  
       let data = {
          skip: 0,
          limit: Limit,
