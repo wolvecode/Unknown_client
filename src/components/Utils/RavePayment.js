@@ -25,7 +25,7 @@ class RavePayment extends Component {
       }
    }
    onSuccess = (response) => {
-      console.log('The paymesnt was succesful', response)
+      console.log('The payment was succesful', response)
       this.props.onSuccess(response)
    }
 
