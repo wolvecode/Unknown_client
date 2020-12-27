@@ -14,6 +14,7 @@ function FileUpload(props) {
             'Content-Type': 'multipart/form-data',
          },
       }
+
       formData.append('file', files[0])
 
       //Saving image inside the node server
