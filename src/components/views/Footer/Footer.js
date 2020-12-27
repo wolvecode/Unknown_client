@@ -63,9 +63,6 @@ function Footer() {
                   <a href=''>
                      <i class='fab fa-whatsapp-square'></i>
                   </a>
-                  <a href=''>
-                     <i class='fab fa-linkedin'></i>
-                  </a>
                </div>
             </div>
          </div>
