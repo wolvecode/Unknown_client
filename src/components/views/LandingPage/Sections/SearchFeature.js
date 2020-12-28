@@ -10,7 +10,14 @@ function SearchFeature(props) {
    }
    return (
       <div>
-         <div style={{ display: 'flex', float: 'right' }}>
+         <div
+            style={{
+               display: 'flex',
+               float: 'right',
+               height: '4.2em',
+               width: '20.2em',
+            }}
+         >
             <Search
                onChange={changeSearch}
                value={SearchTerms}

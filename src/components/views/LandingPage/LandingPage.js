@@ -34,6 +34,7 @@ function LandingPage(props) {
       axios
          .post('http://localhost:5000/api/product/getFood', data)
          .then((response) => {
+            console.log(response.data)
             if (response.data.success) {
                if (data.loadMore) {
                   setFoods([...Foods, ...response.data.foods])
@@ -150,7 +151,6 @@ function LandingPage(props) {
                {Foods.length === 0 ? (
                   <div
                      style={{
-                        display: 'flex',
                         justifyContent: 'center',
                      }}
                   >
