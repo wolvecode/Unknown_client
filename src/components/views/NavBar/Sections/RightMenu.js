@@ -53,7 +53,11 @@ function RightMenu(props) {
                </Badge>
             </Menu.Item>
             <Menu.Item key='upload'>
-               <a href='/product/upload'>Upload</a>
+               {user.userData && user.userData.isAdmin === true ? (
+                  <a href='/product/upload'>Upload</a>
+               ) : (
+                  ''
+               )}
             </Menu.Item>
 
             <Menu.Item key='logout'>
