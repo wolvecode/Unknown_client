@@ -38,12 +38,14 @@ function RegisterPage(props) {
             email: '',
             lastName: '',
             name: '',
+            role: '',
             password: '',
             confirmPassword: '',
          }}
          validationSchema={Yup.object().shape({
             name: Yup.string().required('Name is required'),
             lastName: Yup.string().required('Last Name is required'),
+            role: Yup.string().required('Role is required'),
             email: Yup.string()
                .email('Email is invalid')
                .required('Email is required'),
@@ -60,6 +62,7 @@ function RegisterPage(props) {
                   email: values.email,
                   password: values.password,
                   name: values.name,
+                  role: values.role,
                   lastname: values.lastname,
                   image: `http://gravatar.com/avatar/${moment().unix()}?d=identicon`,
                }
@@ -133,6 +136,29 @@ function RegisterPage(props) {
                            <div className='input-feedback'>
                               {errors.lastName}
                            </div>
+                        )}
+                     </Form.Item>
+
+                     <Form.Item required label='Role'>
+                        <select
+                           name='role'
+                           value={values.role}
+                           style={{ width: '100%', height: '100%' }}
+                           onChange={handleChange}
+                           onBlur={handleBlur}
+                           className={
+                              errors.role && touched.role
+                                 ? 'text-input error'
+                                 : 'text-input'
+                           }
+                        >
+                           <option value='' label='Select a role' />
+                           <option value='User' label='User' />
+                           <option value='Admin' label='Admin' />
+                        </select>
+
+                        {errors.role && touched.role && (
+                           <div className='input-feedback'>{errors.role}</div>
                         )}
                      </Form.Item>
 
