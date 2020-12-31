@@ -10,20 +10,18 @@ function SearchFeature(props) {
    }
    return (
       <div>
-         <div
-            style={{
-               display: 'flex',
-               float: 'right',
-               height: '4.2em',
-               width: '20.2em',
-            }}
-         >
-            <Search
-               onChange={changeSearch}
-               value={SearchTerms}
-               placeholder='Search Food by typing...'
-            />
-            <br />
+         <div>
+            <div className='search'>
+               <Search
+                  onChange={changeSearch}
+                  size={'large'}
+                  value={SearchTerms}
+                  placeholder='Search Food by typing...'
+               />
+            </div>
+         </div>
+         <div className='search-header'>
+            <h1>We deliver to your doorstep</h1>
          </div>
       </div>
    )

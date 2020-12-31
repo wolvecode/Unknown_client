@@ -13,7 +13,7 @@ const { Meta } = Card
 function LandingPage(props) {
    const [Foods, setFoods] = useState([])
    const [Skip, setSkip] = useState(0)
-   const [Limit, setLimit] = useState(6)
+   const [Limit, setLimit] = useState(4)
    const [PostSize, setPostSize] = useState(0)
    const [SearchTerms, setSearchTerms] = useState('')
    const [Filters, setFilters] = useState({
@@ -65,9 +65,13 @@ function LandingPage(props) {
    const renderCards = Foods.map((food, index) => {
       console.log(food)
       return (
-         <Col lg={4} md={12} xs={12}>
+         <Col lg={6} md={12} xs={12}>
             <Card
-               style={{ marginBottom: '1.5rem' }}
+               style={{
+                  margin: '1rem',
+                  fontFamily: 'Amaranth, san -serif',
+                  color: '#575252',
+               }}
                hoverable={true}
                cover={
                   <a href={`/product/${food._id}`}>
@@ -75,7 +79,10 @@ function LandingPage(props) {
                   </a>
                }
             >
-               <Meta title={food.name} description={`$${food.price}`}></Meta>
+               <Meta
+                  title={food.name}
+                  description={` ₦${food.price}.00`}
+               ></Meta>
             </Card>
          </Col>
       )
@@ -178,15 +185,31 @@ function LandingPage(props) {
                      style={{
                         display: 'flex',
                         justifyContent: 'center',
+                        fontFamily: 'Amaranth, san-serif',
                      }}
                   >
-                     <button onClick={loadMore}>Load More</button>
+                     <button
+                        className='load-more'
+                        style={{
+                           fontFamily: 'Amaranth, san-serif',
+                           background: '#ec3237',
+                           color: '#f5f5f5',
+                           border: 'none',
+                           textDecoration: 'none',
+                           cursor: 'allowed',
+                           cursor: 'pointer',
+                           borderRadius: '0.2rem',
+                        }}
+                        onClick={loadMore}
+                     >
+                        Load More
+                     </button>
                   </div>
                )}
             </div>
          </div>
          <div className='middle-landing'>
-            <h3>HOW IT WORKS</h3>
+            <h3>How It Work</h3>
             <div className='work-section'>
                <div className='work'>
                   <span>
@@ -218,7 +241,7 @@ function LandingPage(props) {
                </div>
             </div>
             <div className='cuisines'>
-               <h3>CUISINES</h3>
+               <h3>Cuisines</h3>
                <div className='cuisines-section'>
                   <div className='cuise'>
                      <p>American</p>
