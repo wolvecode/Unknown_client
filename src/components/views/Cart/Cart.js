@@ -100,7 +100,9 @@ function Cart(props) {
    }
    return (
       <div style={{ width: '85%', margin: '3rem auto' }}>
-         <h1>My Cart</h1>
+         <h1 style={{ fontFamily: 'open-sans', fontWeight: 'bolder' }}>
+            My Cart
+         </h1>
          <div>
             <UserCart
                foods={props.user.cartDetail}
@@ -108,8 +110,14 @@ function Cart(props) {
             />
 
             {ShowTotal ? (
-               <div style={{ marginTop: '3rem' }}>
-                  <h2>Total Amount:$ {Total}</h2>
+               <div
+                  style={{
+                     marginTop: '3rem',
+                     fontFamily: 'Amaranth',
+                     fontSize: '1.3rem',
+                  }}
+               >
+                  <h2>Total Amount: ₦{Total}</h2>
                </div>
             ) : ShowSuccess ? (
                <Result status='success' title='Succesfully Purchased Items' />
@@ -130,6 +138,9 @@ function Cart(props) {
 
          {ShowTotal && (
             <PayRave
+               style={{
+                  fontFamily: 'Amaranth, sans-serif',
+               }}
                toPay={Total}
                onSuccess={transactionSucess}
                transactionError={transactionError}
