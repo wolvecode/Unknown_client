@@ -12,7 +12,11 @@ function UserCart(props) {
       props.foods &&
       props.foods.map((food) => (
          <tr key={food._id}>
-            <td>
+            <td
+               style={{
+                  fontFamily: 'Courgette, cursive',
+               }}
+            >
                <img
                   style={{ width: '60px' }}
                   src={rendercartImage(food.image)}
@@ -36,7 +40,12 @@ function UserCart(props) {
    return (
       <div style={{ marginRight: '3rem', width: '100%' }}>
          <table style={{ width: '100%' }}>
-            <thead>
+            <thead
+               style={{
+                  fontFamily: 'Amaranth, san-serif',
+                  fontSize: '1.3rem',
+               }}
+            >
                <tr>
                   <th>Food Image</th>
                   <th>Food Quantity</th>
