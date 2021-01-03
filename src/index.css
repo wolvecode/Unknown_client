@@ -1,20 +1,8 @@
 @import '~react-image-gallery/styles/css/image-gallery.css';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 body {
-   margin: 0;
-   font-family: 'Noto Sans', sans-serif;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-}
-
-body {
-   font-family: 'Noto Sans', sans-serif;
+   font-family: 'Open Sans', sans-serif;
    font-size: 14px;
    line-height: 1.5;
    color: #24292e;
@@ -44,6 +32,7 @@ FOOTER PAGE STYLING
 */
 
 .footer {
+   font-family: 'Open Sans', sans-serif;
    background: #3d3d3d;
    font-size: 1rem;
 }
@@ -52,6 +41,7 @@ FOOTER PAGE STYLING
 }
 
 .footer-section {
+   font-family: 'Open Sans', sans-serif;
    color: #f5f5f5;
    display: flex;
    flex-wrap: wrap;
@@ -78,6 +68,7 @@ FOOTER PAGE STYLING
 }
 
 .footer-copyright {
+   font-family: 'Open Sans', sans-serif;
    color: #5f5f5f;
    display: flex;
    flex-wrap: wrap;
@@ -115,9 +106,11 @@ MEDIUM AND SMALL SCREEN STYLE FOR FOOTER
    .footer {
       justify-content: center;
       background: #3d3d3d;
+      font-family: 'Open Sans', sans-serif;
       font-size: 0.7rem;
    }
    .footer-section {
+      font-family: 'Open Sans', sans-serif;
       color: #f5f5f5;
       display: flex;
       margin: 0.8rem 0rem;
@@ -140,21 +133,31 @@ LANDING PAGE STYLING
    background: url(img/people-standing-in-front-of-table-with-foods-4261997.jpg);
    background-size: cover;
    height: 30rem;
+   font-family: 'Open Sans', sans-serif;
    display: flex;
 }
 .landing-search {
+   font-family: 'Open Sans', sans-serif;
    margin: auto;
 }
-
+.search-header h1 {
+   font-family: 'Courgette', cursive;
+   color: #24292e;
+   font-size: 3rem;
+   text-align: center;
+   font-weight: bolder;
+}
 /* 
 Middle of landing page
 */
 
 .middle-landing h3 {
+   font-family: 'Amaranth', sans-serif;
+   font-style: bold;
    text-align: center;
-   color: #323232;
-   font-size: 1.5rem;
+   font-size: 2rem;
    margin-top: 2rem;
+   color: #575252;
 }
 
 .work-section {
@@ -167,12 +170,16 @@ Middle of landing page
    justify-content: center;
    justify-items: center;
    text-align: center;
+   font-family: 'Open Sans', sans-serif;
    color: #f5f5f5;
    padding: 2rem 0rem;
 }
 .work h4 {
-   color: #000000;
+   color: #272323;
+   font-family: 'Amaranth', sans-serif;
+   font-style: bold;
    font-size: 1.2rem;
+   font-family: 'Open Sans', sans-serif;
    font-weight: normal;
 }
 .work span {
@@ -197,6 +204,8 @@ SMALL AND MEDIUM SCREEN FOR HOW IT WORKS
    }
 
    .work-section {
+      font-family: 'Amaranth', sans-serif;
+      font-style: bold;
       justify-content: center;
       display: flex;
       flex-wrap: wrap;
@@ -222,7 +231,9 @@ SMALL AND MEDIUM SCREEN FOR HOW IT WORKS
 CUISINES STYLING
  */
 .cuisines-section {
+   font-family: 'Open Sans', sans-serif;
    margin: auto 10rem;
+   color: #575252;
    flex-wrap: wrap;
    display: flex;
 }
@@ -235,8 +246,8 @@ CUISINES STYLING
 
 .cuisines h3 {
    text-align: center;
-   color: #323232;
-   font-size: 1.5rem;
+   color: #575252;
+   font-size: 2rem;
 }
 
 /*
@@ -254,8 +265,12 @@ DISPLAY OF FOOD
 */
 
 .available-food h2 {
+   font-family: 'Amaranth', sans-serif;
+   font-style: bold;
    text-align: center;
-   margin-top: 2rem;
+   font-size: 2rem;
+   margin-top: 2.3rem;
+   color: #575252;
 }
 
 .display-food {
@@ -275,6 +290,7 @@ SMALL SCREEN FOR FOOD DISPLAY
    color: #fff;
    font-weight: bolder;
    font-size: large;
+   font-family: 'Open Sans', sans-serif;
    height: 4rem;
    background-color: rgb(112, 188, 211);
    width: 18rem;
@@ -285,6 +301,7 @@ SMALL SCREEN FOR FOOD DISPLAY
    transition: ease-in;
    transition-duration: 0.4s;
    cursor: pointer;
+   font-family: 'Open Sans', sans-serif;
    color: black;
    background-color: rgb(145, 184, 196);
 }
