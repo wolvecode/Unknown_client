@@ -14,13 +14,16 @@ function HistoryPage() {
       })
    }, [History])
    return (
-      <div style={{ margin: '3rem', width: '80%' }}>
-         <div style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+      <div style={{ margin: '2rem', width: '80%' }}>
+         <div
+            style={{ fontFamily: 'Amaranth, sans-serif', fontWeight: 'bolder' }}
+         >
             <h1>History</h1>
          </div>
          <div>
             <table
                style={{
+                  fontFamily: 'Amaranth',
                   justifyContent: 'center',
                   textJustify: 'center',
                   borderCollapse: 'collapse',
