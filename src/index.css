@@ -288,12 +288,13 @@ SMALL SCREEN FOR FOOD DISPLAY
 
 .ravebutton {
    color: #fff;
-   font-weight: bolder;
    font-size: large;
-   font-family: 'Open Sans', sans-serif;
+   font-family: 'Amaranth';
+   font-style: italic;
    height: 4rem;
-   background-color: rgb(112, 188, 211);
-   width: 18rem;
+   background-color: #ee454b;
+   width: 15rem;
+   border-radius: 0.2rem;
    border: none;
 }
 
@@ -301,9 +302,9 @@ SMALL SCREEN FOR FOOD DISPLAY
    transition: ease-in;
    transition-duration: 0.4s;
    cursor: pointer;
-   font-family: 'Open Sans', sans-serif;
+   font-weight: bolder;
    color: black;
-   background-color: rgb(145, 184, 196);
+   background-color: #e76f73;
 }
 
 @media (max-width: 575.98px) {
