@@ -14,7 +14,7 @@ function HistoryPage() {
       })
    }, [History])
    return (
-      <div style={{ margin: '2rem', width: '80%' }}>
+      <div style={{ margin: '2.5rem', width: '80%' }}>
          <div
             style={{ fontFamily: 'Amaranth, sans-serif', fontWeight: 'bolder' }}
          >

@@ -18,7 +18,7 @@ function UserCart(props) {
                }}
             >
                <img
-                  style={{ width: '60px' }}
+                  style={{ width: '4rem', height: '3rem' }}
                   src={rendercartImage(food.image)}
                   alt='foodImage'
                />
@@ -38,19 +38,24 @@ function UserCart(props) {
          </tr>
       ))
    return (
-      <div style={{ marginRight: '3rem', width: '100%' }}>
-         <table style={{ width: '100%' }}>
+      <div style={{ marginRight: '3rem', width: '90%' }}>
+         <table
+            style={{
+               width: '100%',
+               textJustify: 'center',
+               borderCollapse: 'collapse',
+            }}
+         >
             <thead
                style={{
                   fontFamily: 'Amaranth, san-serif',
-                  fontSize: '1.3rem',
                }}
             >
                <tr>
                   <th>Food Image</th>
                   <th>Food Quantity</th>
                   <th>Food Price</th>
-                  <th>Remove from Cart</th>
+                  <th>Remove Item</th>
                </tr>
             </thead>
             <tbody>{renderItems()}</tbody>

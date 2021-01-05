@@ -112,9 +112,9 @@ function Cart(props) {
             {ShowTotal ? (
                <div
                   style={{
-                     marginTop: '3rem',
+                     marginTop: '2.8rem',
                      fontFamily: 'Amaranth',
-                     fontSize: '1.3rem',
+                     fontSize: '1rem',
                   }}
                >
                   <h2>Total Amount: ₦{Total}</h2>
@@ -138,9 +138,6 @@ function Cart(props) {
 
          {ShowTotal && (
             <PayRave
-               style={{
-                  fontFamily: 'Amaranth, sans-serif',
-               }}
                toPay={Total}
                onSuccess={transactionSucess}
                transactionError={transactionError}
